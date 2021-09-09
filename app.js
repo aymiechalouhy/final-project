@@ -9,7 +9,12 @@ require('dotenv').config();
 var bodyParser = require("body-parser");
 var mongoose = require('mongoose');
 
+
+//here
 var usersRouter = require('./routes/users');
+var contactsRouter = require('./routes/contacts');
+var ratesRouter = require('./routes/rates');
+var blogsRouter = require('./routes/blogs');
 
 var app = express();
 
@@ -29,7 +34,12 @@ app.get('/', (req, res) => {
   res.send('Hello Maria !!')
 });
 
+//here
 app.use('/users', usersRouter);
+app.use('/contacts', contactsRouter);
+app.use('/rates', ratesRouter);
+app.use('/blogs', blogsRouter);
+
 
 try {
   mongoose.connect(process.env.CONNECTION_STRING, {
